@@ -1,6 +1,6 @@
 # GEMA SEMESTA Portfolio Website
 
-Website URL `maltstudio.com`
+Website URL `gemasemesta.co`
 
 ### FRAMEWORK
 - Node JS
