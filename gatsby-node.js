@@ -19,7 +19,6 @@ exports.onCreateNode = ({
 
 	if (checkstatus) {
 		redirectObject.redirect.forEach((redirectRequest) => {
-			// console.table(redirectRequest);
 			if (redirectRequest.status) {
 				const __from = redirectRequest.from;
 				createRedirect({
@@ -32,7 +31,7 @@ exports.onCreateNode = ({
 	}
 
 	fmImagesToRelative(node);
-	
+
 	const {
 		createNodeField
 	} = actions;
@@ -105,25 +104,8 @@ exports.createPages = ({
 							component: path.resolve(`./src/templates/blog-temp.js`),
 							context: {
 								slug: node.fields.slug,
-								prev_slug: index === 0 ? null : results[index - 1].node.fields.slug,
-								next_slug: index === results.length - 1 ? null : results[index + 1].node.fields.slug,
-								start_node: results[0].node
 							}
 						});
-					} else if (node.frontmatter.contenttype == 'about') {
-						createPage({
-							path: node.fields.slug,
-							component: path.resolve(`./src/templates/about.js`),
-							context: {
-								slug: node.fields.slug,
-							}
-						});
-					} else if (node.frontmatter.issetting && node.frontmatter.contenttype == 'slug_setting') {
-						// redirectObject = node.frontmatter;
-						// checkstatus = true;
-						// console.log('create pages', checkstatus);
-						// console.log(redirectObject);
-						// console.log('\n');
 					}
 				})
 

@@ -1,7 +1,7 @@
 module.exports = {
     siteMetadata: {
-        title: `Web Title`,
-        siteUrl: `https://gatsbyv2.netlify.com`,
+        title: `Gema Semesta – Coming Soon`,
+        siteUrl: ``,
     },
     plugins: [{
             resolve: 'gatsby-source-filesystem',
@@ -12,15 +12,12 @@ module.exports = {
         }, {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: "MALT Studio",
-                short_name: "MALTstudio",
+                name: "Gema Semesta",
+                short_name: "gemasemesta",
                 start_url: "/",
-                background_color: "#6b37bf",
-                theme_color: "#6b37bf",
-                // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
-                // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+                background_color: "#333",
+                theme_color: "#333",
                 display: "standalone",
-                //   icon: "src/images/icon.png", // This path is relative to the root of the site.
             },
         },
         {
@@ -38,7 +35,12 @@ module.exports = {
         `gatsby-plugin-offline`,
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-sass`,
-        `gatsby-plugin-netlify-cms`,
+        {
+            // resolve: `gatsby-plugin-netlify-cms`,
+            // options: {
+            //     htmlTitle: `Content Manager | Talent Cap`,
+            // },
+        },
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         `gatsby-plugin-layout`,
@@ -46,7 +48,6 @@ module.exports = {
         {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
-                // replace "UA-XXXXXXXXX-X" with your own Tracking ID
                 trackingId: "UA-XXXXXXXXX-X",
             }
         },
