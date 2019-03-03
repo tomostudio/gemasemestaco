@@ -65,23 +65,7 @@ exports.createPages = ({
 		resolve(
 			graphql(`
       {
-        all: allMarkdownRemark (
-					filter: { frontmatter: { issetting: { eq: false }} }
-          sort:{fields: [frontmatter___index], order: ASC}
-        ){
-          edges {
-            node {
-              fields {
-                slug
-							}
-							frontmatter{
-								issetting
-								contenttype
-							}
-            }
-          }
-				}
-				slug_setting: markdownRemark(frontmatter: {issetting: {eq: true}, contenttype: {eq: "slug_setting"}}) {
+			slug_setting: markdownRemark(frontmatter: {issetting: {eq: true}, contenttype: {eq: "slug_setting"}}) {
 					frontmatter {
 						title
 						issetting
@@ -94,20 +78,20 @@ exports.createPages = ({
 			}
       }
     `).then((result) => {
-				const results = result.data.all.edges;
-				results.forEach(({
-					node
-				}, index) => {
-					if (node.frontmatter.contenttype == 'blog') {
-						createPage({
-							path: node.fields.slug,
-							component: path.resolve(`./src/templates/blog-temp.js`),
-							context: {
-								slug: node.fields.slug,
-							}
-						});
-					}
-				})
+				// const results = result.data.all.edges;
+				// results.forEach(({
+				// 	node
+				// }, index) => {
+				// 	if (node.frontmatter.contenttype == 'blog') {
+				// 		createPage({
+				// 			path: node.fields.slug,
+				// 			component: path.resolve(`./src/templates/blog-temp.js`),
+				// 			context: {
+				// 				slug: node.fields.slug,
+				// 			}
+				// 		});
+				// 	}
+				// })
 
 				if (result.data.slug_setting) {
 					redirectObject = result.data.slug_setting.frontmatter;

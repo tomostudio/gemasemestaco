@@ -7,12 +7,6 @@ export default class Layout extends React.Component {
 	render() {
 		const props = this.props;
 
-		const seo = {
-			desc: '',
-			keywords: '',
-			image: '',
-			url: 'https://gemasemesta.co'
-		};
 		return (
 			<StaticQuery
 				query={graphql`
@@ -24,10 +18,16 @@ export default class Layout extends React.Component {
 						}
 					}
 				`}
-				render={(data) => (
-					// <PageTransition>
-					<div style={{ margin: `3rem auto`, maxWidth: 600 }}>
-						<Helmet>
+				render={(data) => {
+					const seo = {
+						desc: '',
+						keywords: '',
+						image: '',
+						url: 'https://gemasemesta.co'
+					};
+					const webname = data.site.siteMetadata.title;
+					return (
+						<div>
 							<Helmet>
 								<title>{props.titleText ? `${props.titleText} | ${webname}` : webname}</title>
 								<meta name="description" content={seo.desc} />
@@ -52,12 +52,10 @@ export default class Layout extends React.Component {
 								{seo.desc && <meta name="twitter:description" content={seo.desc} />}
 								{seo.image && <meta name="twitter:image" content={seo.image} />}
 							</Helmet>
-						</Helmet>
-						{data.site.siteMetadata.title}
-						{props.children}
-					</div>
-					// </PageTransition>
-				)}
+							{props.children}
+						</div>
+					);
+				}}
 			/>
 		);
 	}

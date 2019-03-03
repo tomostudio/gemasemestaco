@@ -5,7 +5,7 @@ import {
 } from "react-transition-group"
 
 //This variable will be responsible for our animation duration
-const timeout = 2000
+const timeout = 1000
 
 //This object contains basic styles for animation, but you can extend them to whatever you like. Be creative!
 const getTransitionStyles = {
@@ -17,12 +17,10 @@ const getTransitionStyles = {
     entered: {
         transition: `opacity ${timeout}ms ease-in-out`,
         opacity: 1,
-        background: 'yellow'
     },
     exiting: {
         transition: `opacity ${timeout}ms ease-in-out`,
         opacity: 0,
-        background: 'blue'
     },
 }
 
@@ -32,13 +30,9 @@ class Transition extends React.PureComponent {
         const { children, location } = this.props
 
         return (
-            //Using TransitionGroup and ReactTransition which are both
-            //coming from  'react-transition-group' and are required for transitions to work
             <TransitionGroup>
                 <ReactTransition
-                //the key is necessary here because our ReactTransition needs to know when pages are entering/exiting the DOM
                     key={location.pathname}
-                    //duration of transition
                     timeout={{
                         enter: timeout,
                         exit: timeout,
@@ -51,6 +45,7 @@ class Transition extends React.PureComponent {
                             style={{
                                 ...getTransitionStyles[status],
                             }}
+                            className={status}
                         >
                             {children}
                         </div>

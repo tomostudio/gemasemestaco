@@ -1,3 +1,11 @@
+// WIDTH
+$break-smaller: 450px; // MOBILE
+$break-small: 750px; // MOBILE
+$break-medium: 1024px; // TABLET
+$break-large: 1240px; // DESKTOP M
+
+$height-break: 350px;
+
 //MEDIA MIXIN
 @mixin respond-to($media) {
 

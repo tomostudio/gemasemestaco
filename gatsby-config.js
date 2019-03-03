@@ -26,21 +26,16 @@ module.exports = {
                 name: `src`,
                 path: `${__dirname}/src/`,
             },
-        }, {
-            resolve: `gatsby-plugin-typography`,
-            options: {
-                pathToConfigModule: `src/utils/typography.js`,
-            },
         },
         `gatsby-plugin-offline`,
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-sass`,
-        {
+        // {
             // resolve: `gatsby-plugin-netlify-cms`,
             // options: {
             //     htmlTitle: `Content Manager | Talent Cap`,
             // },
-        },
+        // },
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         `gatsby-plugin-layout`,
