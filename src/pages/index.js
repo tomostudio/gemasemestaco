@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import Layout from 'components/layout';
 
 export default class Index extends React.Component {
@@ -10,6 +10,7 @@ export default class Index extends React.Component {
 		Home.exit();
 	}
 	render() {
+		const setting = this.props.data.setting;
 		return (
 			<Layout className="main">
 				<div className="content">
@@ -35,6 +36,18 @@ export default class Index extends React.Component {
 		);
 	}
 }
+
+
+export const query = graphql`
+	query {
+		setting: markdownRemark(frontmatter: { issetting: { eq: true }, contenttype: { eq: "general_setting" } }) {
+			frontmatter {
+				title
+			}
+		}
+	}
+`;
+
 
 const Home = {
 	init: () => {

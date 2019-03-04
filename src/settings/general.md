@@ -10,6 +10,7 @@ bg_img:
   - img: /assets/placeimg_640_480_grayscale_arch.jpg
     title: Gema Semesta
 work:
+  toggle: false
   link: 'https://instagram.com/gemasemesta.co'
 email: hello@gemasemesta.co
 ---

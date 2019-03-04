@@ -9,23 +9,19 @@ export default class Layout extends React.Component {
 
 		return (
 			<StaticQuery
-				query={graphql`
-					query {
-						site {
-							siteMetadata {
-								title
-							}
-						}
-					}
-				`}
+				query={query}
 				render={(data) => {
+					const webname = data.setting.frontmatter.title;
+					let seo_image = '';
+					if (data.setting.frontmatter.seo.seo_image) {
+						seo_image = `https://gemasemesta.co${data.setting.frontmatter.seo.seo_image.childImageSharp.fluid.src}`;
+					}
 					const seo = {
-						desc: '',
-						keywords: '',
-						image: '',
+						desc:  data.setting.frontmatter.seo.seo_shortdesc,
+						keywords: data.setting.frontmatter.seo.seo_keywords,
+						image: seo_image,
 						url: 'https://gemasemesta.co'
 					};
-					const webname = data.site.siteMetadata.title;
 					return (
 						<div className={props.className} id="Layout">
 							<Helmet>
@@ -60,3 +56,24 @@ export default class Layout extends React.Component {
 		);
 	}
 }
+
+const query = graphql`
+	query {
+		setting: markdownRemark(frontmatter: { issetting: { eq: true }, contenttype: { eq: "general_setting" } }) {
+			frontmatter {
+				title
+				seo {
+					seo_image {
+						childImageSharp {
+							fluid(maxWidth: 1200) {
+								...GatsbyImageSharpFluid_noBase64
+							}
+						}
+					}
+					seo_keywords
+					seo_shortdesc
+				}
+			}
+		}
+	}
+`;
