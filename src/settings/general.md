@@ -20,7 +20,7 @@ bg_img:
   - img: /assets/gema-semesta_coming-soon-16.jpg
     title: Gema Semesta 6
 work:
-  file: /assets/placeholder.pdf
+  file: ''
   link: 'https://instagram.com/gemasemesta.co'
   toggle: false
 email: mail@gemasemesta.co
