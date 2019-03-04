@@ -1,58 +1,9 @@
 backend:
   name: git-gateway
-  # name: test-repo
-  # repo: hendhyhutomo/gatsbyv2
 
 media_folder: static/assets
 public_folder: assets
 collections:
-  - name: blog
-    label: Blog
-    folder: src/pages/blog
-    create: true
-    fields:
-      - { name: 'issetting', label: 'issetting', widget: 'hidden', default: 'true', required: true, }
-      - { name: 'contenttype', label: 'contenttype', widget: 'hidden', default: 'blog', required: true, }
-      - {
-          name: 'slug',
-          label: 'Slug',
-          widget: 'string',
-          hint: 'Lower Characters (a-z), Numericals (0-9), dash (-), forwardslash (/) and must not start with a /, Minimum 3 Characters, eg: "project-slug"',
-          pattern:
-            [
-              '^([a-z0-9]+(?:(-|/)[a-z0-9]+)*){3,}$',
-              'Invalid Characters'
-            ],
-        }
-      - { name: 'index', label: 'Index', widget: 'number', default: 0, }
-      - { name: 'date', label: 'Date', widget: 'date', }
-      - { name: 'title', label: 'Title', }
-      - { name: 'coverimage', label: 'Cover Image', widget: 'image', }
-      - { name: 'body', label: 'Body', widget: 'markdown', }
-  - label: 'Pages'
-    name: 'page'
-    delete: false
-    files:
-      - file: 'src/pages/single/about.md'
-        label: 'About '
-        name: 'about'
-        delete: false
-        fields:
-          - { name: 'issetting', label: 'issetting', widget: 'hidden', default: false, required: true, }
-          - { name: 'contenttype', label: 'contenttype', widget: 'hidden', default: 'about', required: true, }
-          - {
-              name: 'slug',
-              label: 'Slug',
-              widget: 'string',
-              hint: 'Lower Characters (a-z), Numericals (0-9), dash (-), forwardslash (/) and must not start with a /, Minimum 3 Characters, eg: "project-slug"',
-              pattern:
-                [
-                  '^([a-z0-9]+(?:(-|/)[a-z0-9]+)*){3,}$',
-                  'Invalid Characters'
-                ],
-            }
-          - { name: 'title', label: 'Title', }
-          - { name: 'body', label: 'Body', widget: 'markdown', }
   - label: 'Settings'
     name: 'settings'
     delete: false
@@ -67,36 +18,21 @@ collections:
         fields:
           - { name: 'issetting', label: 'issetting', widget: 'hidden', default: true, required: true, }
           - { name: 'contenttype', label: 'contenttype', widget: 'hidden', default: 'general_setting', required: true, }
-          - { label: 'Title', name: 'title', widget: 'hidden', default: 'General Setting', required: true, }
-          - { label: 'Body', name: 'body', widget: 'string' }
-      - file: 'src/settings/slug.md'
-        label: 'URL Redirect'
-        name: 'slug'
-        delete: false
-        description: 'Creates URL Redirector'
-        fields:
-          - { name: 'issetting', label: 'issetting', widget: 'hidden', default: true, required: true, }
-          - { name: 'contenttype', label: 'contenttype', widget: 'hidden', default: 'slug_setting', required: true, }
-          - { label: 'Title', name: 'title', widget: 'hidden', default: 'URL Redirect', required: true, }
-          - name: 'redirect'
-            label: 'URL LIST'
-            widget: 'list'
-            label_singular: 'Redirect'
-            required: false
+          - { label: 'Website Title', name: 'title', widget: 'string', required: true, }
+          - label: "META INFO"
+            name: "seo"
+            widget: "object"
             fields:
-              - { label: 'From (Internal Slug)', name: 'from', widget: 'string',
-                  hint: 'Lower Characters (a-z), Numericals (0-9), dash (-), forwardslash (/) and must not start with a /, Minimum 3 Characters, eg: "redirect-to-google"',
-                  pattern: [
-                    [
-                      '^([a-z0-9]+(?:(-|/)[a-z0-9]+)*){3,}$',
-                      'Invalid Characters'
-                    ],]
-                  }
-              - { label: 'To', name: 'to', widget: 'string',
-                  hint: 'Lower Characters (a-z), Numericals (0-9), dash (-), forwardslash (/) and must not start with a /, Minimum 3 Characters, eg: External URL "https://google.com", Internal: "google"',
-                  pattern: [
-                  [
-                    '^([a-z0-9]+(?:(-|/)[a-z0-9]+)*){3,}$',
-                      'Invalid Characters'
-                  ],] }
-              - { label: 'Active', name: 'status', widget: 'boolean', default: false }
+            - { label: 'Short Description', name: 'seo_shortdesc', widget: 'string', hint: 'Max (200 Characters).', required: true }
+            - { label: 'Keywords', name: 'seo_keywords', widget: 'string',  hint: 'Each Keywords are seperated with a comma (","). Max (200 Characters).', required: true }
+            - { name: 'seo_image', label: 'Image', widget: 'image', hint: 'width: 1200px, height: 600px', required: true}
+          - { name: 'bg_img', label: 'Background Image', widget: 'image', allow_multiple: true, required: true} 
+          - label: "Works"
+            name: "work"
+            widget: "object"
+            fields:
+            - { label: 'Work Link', name: 'link', widget: 'string', required: true }
+            - { label: 'Show File', name: 'toggle', widget: 'boolean',  default: false, required: true }
+            - { label: 'Work File', name: 'file', widget: 'file', required: false, allow_multiple: false}
+          - { label: 'Email Address', name: 'title', widget: 'string', required: true, }
+          - { label: 'About', name: 'body', widget: 'markdown' }

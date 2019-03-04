@@ -1,3 +1,121 @@
-body{
+body {
     font-family: 'UniversNextPro'
+}
+
+a {
+    text-decoration: none;
+}
+
+div#Layout {
+    @include setflex(column, nowrap, space-between, flex-start, flex-start);
+    @extend %font_normal_standard;
+    font-size: $fs-default;
+    line-height: 125%;
+    min-height: 100vh;
+    &.main {
+        padding: $global-padding;
+        @include respond-to(mobile){
+            padding: $global-padding-m;
+        }
+        & .content {
+            width: 100%;
+            margin: 0px auto;
+            position: relative;
+            z-index: 1;
+            &>div:nth-child(1) {
+                body.loading & {
+                    opacity: 0;
+                }
+                body:not(.loading) &{
+                    opacity: 1;
+                    @include transition(opacity $load-transition .4s);
+                }
+            }
+
+            &>div:nth-child(2) {
+                margin-top: 30px;
+                @include setflex(column, nowrap, flex-start, flex-start, flex-start);
+
+                body:not(.loading) & {
+                    opacity: 1;
+                    @include transition(opacity $load-transition .9s);
+                }
+                &>a {
+                    body.loading & {
+                        opacity: 0;
+                        @include transition(opacity 0s 0s);
+                    }
+                    display: inline-block;
+                    color: black;
+
+                    @for $i from 1 to 20 {
+                        &:nth-child(#{$i}){
+                            $delay: .4s + (.4s * $i);
+                            @include transition(color $global-transition, opacity $load-transition $delay);
+                        }
+                    }
+                    body.onhover &:hover{
+                        color: $color_blue;
+                    }
+                }
+            }
+        }
+        & .background {
+            position: fixed;
+            z-index: -1;
+            width: 100vw;
+            height: 100vh;
+            top: 0px;
+            left: 0px;
+            body.loading & {
+                opacity: 0;
+            }
+            body:not(.loading) &{
+                opacity: 1;
+                @include transition(opacity $load-transition);
+            }
+            & > div{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: yellow;
+                opacity: .5;
+            }
+        }
+    }
+    &.about{
+        display: grid;
+        grid-template: 1fr / 1fr;
+        body.loading & {
+            opacity: 0;
+        }
+        body:not(.loading) &{
+            opacity: 1;
+            @include transition(opacity $load-transition);
+        }
+        & > a{
+            padding: $global-padding;
+            @include respond-to(mobile){
+                padding: $global-padding-m;
+            }
+            cursor: w-resize;
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: black;
+            text-decoration: none;
+        }
+    }
+    & > footer{
+        font-size: $fs-small;
+        width: 100%;
+        text-align: center;
+        body.loading & {
+            opacity: 0;
+        }
+        body:not(.loading) &{
+            opacity: 1;
+            @include transition(opacity $load-transition);
+        }
+    }
 }

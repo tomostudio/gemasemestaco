@@ -27,7 +27,7 @@ export default class Layout extends React.Component {
 					};
 					const webname = data.site.siteMetadata.title;
 					return (
-						<div>
+						<div className={props.className} id="Layout">
 							<Helmet>
 								<title>{props.titleText ? `${props.titleText} | ${webname}` : webname}</title>
 								<meta name="description" content={seo.desc} />

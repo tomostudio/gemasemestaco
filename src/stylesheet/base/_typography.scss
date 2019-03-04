@@ -1,34 +1,25 @@
 // ==========================================================================
 // FONT SIZES
 
-$font-size-small: 8pt;
-$font-size-header: 10pt;
-$font-size-body: 10px;
-$font-size-button: 12px;
-$line-height-body: 20px;
-$line-height-body-mobile: 18px;
+$fs-small: 10pt;
+$fs-default: 14pt;
 
 
 // ==========================================================================
 
-%font_normal_black {
-    font-family: 'TitlingGothicFB', Helvetica, sans-serif;
-    font-weight: 900;
-}
-
-%font_normal_standard {
-    font-family: 'TitlingGothicFB', Helvetica, sans-serif;
+%font_normal_bold {
+    font-family: 'UniversNextPro', Helvetica, sans-serif;
     font-weight: 600;
 }
 
-%font_normal_light {
-    font-family: 'TitlingGothicFB', Helvetica, sans-serif;
-    font-weight: 100;
+%font_normal_standard {
+    font-family: 'UniversNextPro', Helvetica, sans-serif;
+    font-weight: 300;
 }
 
-%font_comp_light {
-    font-family: 'TitlingGothicFB Comp', Helvetica, sans-serif;
-    font-weight: normal;
+%font_normal_light {
+    font-family: 'UniversNextPro', Helvetica, sans-serif;
+    font-weight: 100;
 }
 
 // ==========================================================================

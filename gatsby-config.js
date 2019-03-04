@@ -1,7 +1,7 @@
 module.exports = {
     siteMetadata: {
-        title: `Gema Semesta – Coming Soon`,
-        siteUrl: ``,
+        title: `Gema Semesta WIP`,
+        siteUrl: `https://gemasemesta.co`,
     },
     plugins: [{
             resolve: 'gatsby-source-filesystem',
@@ -18,6 +18,7 @@ module.exports = {
                 background_color: "#333",
                 theme_color: "#333",
                 display: "standalone",
+                icon: "src/images/icon/icon.png",
             },
         },
         {
@@ -30,12 +31,12 @@ module.exports = {
         `gatsby-plugin-offline`,
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-sass`,
-        // {
-            // resolve: `gatsby-plugin-netlify-cms`,
-            // options: {
-            //     htmlTitle: `Content Manager | Talent Cap`,
-            // },
-        // },
+        {
+            resolve: `gatsby-plugin-netlify-cms`,
+            options: {
+                htmlTitle: `Content Manager | Gema Semesta`,
+            },
+        },
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         `gatsby-plugin-layout`,
@@ -50,7 +51,6 @@ module.exports = {
             resolve: `gatsby-transformer-remark`,
             options: {
                 plugins: [
-                    // netlifyCmsPaths, // Including in your Remark plugins will transform any paths in your markdown body
                     {
                         resolve: `gatsby-remark-relative-images`,
                     },

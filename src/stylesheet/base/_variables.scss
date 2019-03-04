@@ -1,29 +1,19 @@
 // ==========================================================================
 // COLOR
-
-$color_orange: #fd664b;
-$color_blue: #0193d7;
-$color_cream: #f7ece4;
-$color_cream2: #ffa990;
-$color_purple_blue: #3943ac;
+$color_blue: blue;
 
 // ==========================================================================
 // TRANSITION
-$global-transition: .4s;
-$page-transition: .4s;
+$global-transition: .25s;
+$load-transition: .8s;
 
 // ==========================================================================
 // COMMON VAR
 
-$half-column-max-width: 450px;
-$global-padding: 50px;
+$global-padding: 40px;
 $global-padding-m: 25px;
-$header-height: 100px;
-$header-height-m: 75px;
 
-$global-minheight: 500px;
-$global-minheight-m: 350px;
-$global-minheight-menuopen: 250px;
+$global-maxwidth: 1240px;
 
 
 // ==========================================================================
