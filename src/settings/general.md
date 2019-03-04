@@ -25,6 +25,7 @@ work:
   toggle: true
 email: hello@gemasemesta.co
 ---
-**Gema Semesta** Lorem Ipsum
+**Gema Semesta** is Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer suscipit malesuada quam, et pretium nisl hendrerit ac. Integer vehicula ornare mi. Sed venenatis, ligula ornare luctus tincidunt,
 
-Lorem Ipsum
+Nulla neque viverra libero, ac egestas mauris ligula vitae elit. Vestibulum congue laoreet dignissim. Nullam vel tempus nibh. Nulla molestie lacinia orci
+vel semper. Mauris magna dolor, ultrices non erat molestie, tempus malesuada odio. Suspendisse quis. Qegestas.
