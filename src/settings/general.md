@@ -16,7 +16,7 @@ bg_img:
 work:
   file: /assets/placeholder.pdf
   link: 'https://instagram.com/gemasemesta.co'
-  toggle: false
+  toggle: true
 email: hello@gemasemesta.co
 ---
 **Gema Semesta** Lorem Ipsum

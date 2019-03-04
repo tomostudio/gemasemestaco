@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import Layout from 'components/layout';
+import Img from 'gatsby-image';
 
 export default class Index extends React.Component {
 	componentDidMount() {
@@ -15,13 +16,15 @@ export default class Index extends React.Component {
 			<Layout className="main">
 				<div className="content">
 					<div>
-						Gema Semesta<br />
-						Work In Progress<span className="dots">...</span>
+						<div onClick={Home.backgroundInit}>Gema Semesta</div>
+						<div>
+							Work In Progress<span className="dots">...</span>
+						</div>
 					</div>
 					<div>
 						<Link to="/about">About</Link>
 						<a
-							href={setting.work.toggle ? `file` : `${setting.work.link}`}
+							href={setting.work.toggle ? `${setting.work.file.publicURL}` : `${setting.work.link}`}
 							target="_blank"
 							rel="noopener noreferrer"
 						>
@@ -32,9 +35,11 @@ export default class Index extends React.Component {
 						</a>
 					</div>
 				</div>
-				<div className="background">
-				{setting.bg_img.map((team, id) => (
-					<div key={id}>BACKGROUND</div>
+				<div id="HomeBg" className="background">
+					{setting.bg_img.map((each, id) => (
+						<div key={id}>
+							<Img fluid={each.img.childImageSharp.fluid} alt={each.title} />
+						</div>
 					))}
 				</div>
 				<footer>&copy; 2019. Gema Semesta</footer>
@@ -51,7 +56,9 @@ export const query = graphql`
 				work {
 					toggle
 					link
-					file
+					file {
+						publicURL
+					}
 				}
 				email
 				bg_img {
@@ -72,10 +79,14 @@ export const query = graphql`
 const Home = {
 	init: () => {
 		Home.dotAnim();
+		Home.bgOn = -1;
+		Home.backgroundInit();
 	},
 	exit: () => {
 		clearInterval(Home.dotInterval);
 		Home.dotInterval = null;
+		clearInterval(Home.bgInterval);
+		Home.bgInterval = null;
 	},
 	dotCount: 1,
 	dotInterval: null,
@@ -88,5 +99,38 @@ const Home = {
 			Home.dotCount++;
 			if (Home.dotCount > 3) Home.dotCount = 0;
 		}, 600);
+	},
+	bgInterval: null,
+	bgTiming: 5000,
+	bgOn: 0,
+	backgroundInit: () => {
+		clearInterval(Home.bgInterval);
+		Home.bgInterval = null;
+		// RANDOMIZE FIRST IMAGE
+		const allBg = document.querySelectorAll('div#HomeBg > div');
+		let _r = Math.floor(Math.random() * allBg.length);
+		if(_r === Home.bgOn){
+			while(_r === Home.bgOn){
+				_r = Math.floor(Math.random() * allBg.length);
+			}
+		}
+		Home.bgOn = _r;
+		//ADD SHOW TO FIRST IMAGE
+		Home.changeBg();
+
+		Home.bgInterval = setInterval(() => {
+			Home.bgOn++;
+			if (Home.bgOn >= allBg.length) Home.bgOn = 0;
+			Home.changeBg();
+		}, Home.bgTiming);
+	},
+	changeBg: () => {
+		const allBg = document.querySelectorAll('div#HomeBg > div');
+		if (allBg.length > 0) {
+			allBg.forEach((bg) => {
+				bg.classList.remove('show');
+			});
+			allBg[Home.bgOn].classList.add('show');
+		}
 	}
 };

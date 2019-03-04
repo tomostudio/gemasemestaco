@@ -28,8 +28,11 @@ module.exports = {
                 path: `${__dirname}/src/`,
             },
         },
-        `gatsby-plugin-offline`,
+        // `gatsby-plugin-offline`,
+        `gatsby-plugin-remove-serviceworker`,
+        // 'gatsby-plugin-netlify-cache',
         `gatsby-plugin-react-helmet`,
+        `gatsby-remark-copy-linked-files`,
         `gatsby-plugin-sass`,
         {
             resolve: `gatsby-plugin-netlify-cms`,
@@ -51,15 +54,12 @@ module.exports = {
             resolve: `gatsby-transformer-remark`,
             options: {
                 plugins: [
-                    {
-                        resolve: `gatsby-remark-relative-images`,
-                    },
+                    `gatsby-remark-static-images`,
+                    `gatsby-remark-unwrap-images`,
+                    `gatsby-remark-relative-images`,
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
-                            // It's important to specify the maxWidth (in pixels) of
-                            // the content container as this plugin uses this as the
-                            // base for generating different widths of each image.
                             maxWidth: 1280,
                             backgroundColor: 'transparent', // required to display blurred image first
                         },
