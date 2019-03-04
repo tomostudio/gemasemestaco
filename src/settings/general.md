@@ -23,7 +23,7 @@ work:
   file: /assets/placeholder.pdf
   link: 'https://instagram.com/gemasemesta.co'
   toggle: true
-email: hello@gemasemesta.co
+email: mail@gemasemesta.co
 ---
 **Gema Semesta** is Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer suscipit malesuada quam, et pretium nisl hendrerit ac. Integer vehicula ornare mi. Sed venenatis, ligula ornare luctus tincidunt,
 
