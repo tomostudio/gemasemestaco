@@ -3,6 +3,7 @@ backend:
 
 media_folder: static/assets
 public_folder: assets
+site_url: https://gemasemesta.netlify.com
 collections:
   - label: 'Settings'
     name: 'settings'
@@ -26,7 +27,14 @@ collections:
             - { label: 'Short Description', name: 'seo_shortdesc', widget: 'string', hint: 'Max (200 Characters).', required: true }
             - { label: 'Keywords', name: 'seo_keywords', widget: 'string',  hint: 'Each Keywords are seperated with a comma (","). Max (200 Characters).', required: true }
             - { name: 'seo_image', label: 'Image', widget: 'image', hint: 'width: 1200px, height: 600px', required: true}
-          - { name: 'bg_img', label: 'Background Image', widget: 'image', allow_multiple: true, required: true} 
+          - label: "Background Image"
+            name: "bg_img"
+            widget: "list"
+            required: false
+            allow_add: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Image, name: img, widget: image}
           - label: "Works"
             name: "work"
             widget: "object"
@@ -34,5 +42,5 @@ collections:
             - { label: 'Work Link', name: 'link', widget: 'string', required: true }
             - { label: 'Show File', name: 'toggle', widget: 'boolean',  default: false, required: true }
             - { label: 'Work File', name: 'file', widget: 'file', required: false, allow_multiple: false}
-          - { label: 'Email Address', name: 'title', widget: 'string', required: true, }
+          - { label: 'Email Address', name: 'email', widget: 'string', required: true, }
           - { label: 'About', name: 'body', widget: 'markdown' }
