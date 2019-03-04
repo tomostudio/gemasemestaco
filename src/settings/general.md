@@ -15,4 +15,6 @@ work:
   file: ''
 email: hello@gemasemesta.co
 ---
-**About** Text
+**Gema Semesta** Lorem Ipsum
+
+Lorem Ipsum

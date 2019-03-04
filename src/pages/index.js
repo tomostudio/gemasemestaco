@@ -20,16 +20,22 @@ export default class Index extends React.Component {
 					</div>
 					<div>
 						<Link to="/about">About</Link>
-						<a href={setting.work.toggle ? `file` : `${setting.work.link}`} target="_blank" rel="noopener noreferrer">
+						<a
+							href={setting.work.toggle ? `file` : `${setting.work.link}`}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 							Works
 						</a>
-						<a href={`mailto:hello@gemasemesta.co`} target="_blank" rel="noopener noreferrer ">
+						<a href={`mailto:${setting.email}`} target="_blank" rel="noopener noreferrer ">
 							Email
 						</a>
 					</div>
 				</div>
 				<div className="background">
-					<div>BACKGROUND</div>
+				{setting.bg_img.map((team, id) => (
+					<div key={id}>BACKGROUND</div>
+					))}
 				</div>
 				<footer>&copy; 2019. Gema Semesta</footer>
 			</Layout>
@@ -37,38 +43,39 @@ export default class Index extends React.Component {
 	}
 }
 
-
 export const query = graphql`
 	query {
 		setting: markdownRemark(frontmatter: { issetting: { eq: true }, contenttype: { eq: "general_setting" } }) {
 			frontmatter {
 				title
-				work{
+				work {
 					toggle
 					link
+					file
+				}
+				email
+				bg_img {
+					img {
+						childImageSharp {
+							fluid(maxWidth: 1920) {
+								...GatsbyImageSharpFluid_noBase64
+							}
+						}
+					}
+					title
 				}
 			}
 		}
 	}
 `;
 
-
 const Home = {
 	init: () => {
 		Home.dotAnim();
-
-		Home.initTimeout = setTimeout(() => {
-			if (typeof document !== `undefined`) {
-				document.body.classList.remove('loading');
-			}
-		}, 500);
 	},
-	initTimeout: null,
 	exit: () => {
 		clearInterval(Home.dotInterval);
-		clearTimeout(Home.initTimeout);
 		Home.dotInterval = null;
-		Home.initTimeout = null;
 	},
 	dotCount: 1,
 	dotInterval: null,

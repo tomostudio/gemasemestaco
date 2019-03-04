@@ -4,6 +4,12 @@ import 'stylesheet/main.scss';
 import { Helmet } from 'react-helmet';
 
 export default class Layout extends React.Component {
+	componentDidMount() {
+		CommonLayout.init();
+	}
+	componentWillUnmount() {
+		CommonLayout.exit();
+	}
 	render() {
 		const props = this.props;
 
@@ -77,3 +83,19 @@ const query = graphql`
 		}
 	}
 `;
+
+
+const CommonLayout = {
+	init: () => {
+		CommonLayout.initTimeout = setTimeout(() => {
+			if (typeof document !== `undefined`) {
+				document.body.classList.remove('loading');
+			}
+		}, 500);
+	},
+	initTimeout: null,
+	exit: () => {
+		clearTimeout(CommonLayout.initTimeout);
+		CommonLayout.initTimeout = null;
+	}
+}
