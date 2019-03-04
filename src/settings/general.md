@@ -13,13 +13,18 @@ bg_img:
     title: Gema Semesta 2
   - img: /assets/gema-semesta_coming-soon-13.jpg
     title: Gema Semesta 3
+  - img: /assets/gema-semesta_coming-soon-14.jpg
+    title: Gema Semesta 4
+  - img: /assets/gema-semesta_coming-soon-15.jpg
+    title: Gema Semesta 5
+  - img: /assets/gema-semesta_coming-soon-16.jpg
+    title: Gema Semesta 6
 work:
   file: /assets/placeholder.pdf
   link: 'https://instagram.com/gemasemesta.co'
   toggle: true
 email: hello@gemasemesta.co
 ---
-**Gema Semesta** is Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer suscipit malesuada quam, et pretium nisl hendrerit ac. Integer vehicula ornare mi. Sed venenatis, ligula ornare luctus tincidunt,
+**Gema Semesta** Lorem Ipsum
 
-Nulla neque viverra libero, ac egestas mauris ligula vitae elit. Vestibulum congue laoreet dignissim. Nullam vel tempus nibh. Nulla molestie lacinia orci
-vel semper. Mauris magna dolor, ultrices non erat molestie, tempus malesuada odio. Suspendisse quis. Qegestas.
+Lorem Ipsum
