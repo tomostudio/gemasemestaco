@@ -1,7 +1,7 @@
 ---
 issetting: true
 contenttype: general_setting
-title: Gema Semesta WIP
+title: Gema Semesta Work In Progress...
 seo:
   seo_image: /assets/gema-semesta_coming-soon-1.jpg
   seo_keywords: 'Gema Semesta, Design'
