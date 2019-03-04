@@ -92,10 +92,40 @@ const CommonLayout = {
 				document.body.classList.remove('loading');
 			}
 		}, 500);
+
+		if (typeof document !== `undefined`) {
+			document.querySelector('div#Layout').style.minHeight =  window.innerHeight.toString() + 'px';
+		}
+		CommonLayout.resizeAdd();
 	},
 	initTimeout: null,
 	exit: () => {
 		clearTimeout(CommonLayout.initTimeout);
 		CommonLayout.initTimeout = null;
+		CommonLayout.resizeRemove();
+	},
+
+	resize: () => {
+		const resizeFunction = () => {
+			if (typeof document !== `undefined`) {
+				document.querySelector('div#Layout').style.minHeight =  window.innerHeight.toString() + 'px';
+			}
+		};
+		resizeFunction();
+	},
+	resizeInit: false,
+	resizeAdd: () => {
+		if (typeof window !== `undefined`) {
+			if (!CommonLayout.resizeInit) {
+				CommonLayout.resizeInit = true;
+				window.addEventListener('resize', CommonLayout.resize, { passive: true });
+			}
+		}
+	},
+	resizeRemove: () => {
+		if (typeof window !== `undefined`) {
+			CommonLayout.resizeInit = false;
+			window.removeEventListener('resize', CommonLayout.resize, { passive: true });
+		}
 	}
 }
