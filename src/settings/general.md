@@ -13,7 +13,7 @@ bg_img:
     title: Gema Semesta 2
   - img: /assets/gema-semesta_coming-soon-13.jpg
     title: Gema Semesta 3
-  - img: /assets/gema-semesta_coming-soon-14.jpg
+  - img: ''
     title: Gema Semesta 4
   - img: /assets/gema-semesta_coming-soon-15.jpg
     title: Gema Semesta 5
