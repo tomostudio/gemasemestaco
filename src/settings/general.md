@@ -3,16 +3,20 @@ issetting: true
 contenttype: general_setting
 title: Gema Semesta WIP
 seo:
-  seo_image: /assets/ss2.png
+  seo_image: /assets/gema-semesta_coming-soon-1.jpg
   seo_keywords: 'Gema Semesta, Design'
   seo_shortdesc: Portfolio Website of Gema Semesta that is still a Work in Progress...
 bg_img:
-  - img: /assets/placeimg_640_480_grayscale_arch.jpg
-    title: Gema Semesta
+  - img: /assets/gema-semesta_coming-soon-1.jpg
+    title: 'Gema Semesta '
+  - img: /assets/gema-semesta_coming-soon-12.jpg
+    title: Gema Semesta 2
+  - img: /assets/gema-semesta_coming-soon-13.jpg
+    title: Gema Semesta 3
 work:
-  toggle: false
+  file: /assets/placeholder.pdf
   link: 'https://instagram.com/gemasemesta.co'
-  file: ''
+  toggle: false
 email: hello@gemasemesta.co
 ---
 **Gema Semesta** Lorem Ipsum
