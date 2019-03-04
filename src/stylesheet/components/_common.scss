@@ -1,5 +1,5 @@
 body {
-    font-family: 'UniversNextPro'
+    font-family: 'UniversNextPro';
 }
 
 a {
@@ -8,7 +8,7 @@ a {
 
 div#Layout {
     @include setflex(column, nowrap, space-between, flex-start, flex-start);
-    @extend %font_normal_standard;
+    font-weight: 300;
     font-size: $fs-default;
     line-height: 125%;
     min-height: 100vh;
@@ -161,8 +161,39 @@ div#Layout {
             }
         }
     }
+    &.error{
+        display: grid;
+        grid-template: 1fr / 1fr;
+        body.loading & {
+            opacity: 0;
+        }
 
-    &>footer {
+        body:not(.loading) & {
+            opacity: 1;
+            @include transition(opacity $load-transition);
+        }
+        & > a:first-child{
+            padding: $global-padding;
+            height: 100%;
+            width: 100%;
+
+            @include respond-to(mobile) {
+                padding: $global-padding-m;
+            }
+            @include setflex(column, nowrap, space-between, flex-start, flex-start);
+            color: black;
+            & >div > div:first-child{
+                display: block;
+                color: black;
+                @include transition(color $global-transition);
+
+                body.onhover &:hover {
+                    color: $color_blue;
+                }
+            }
+        }
+    }
+    & footer {
         font-size: $fs-small;
         width: 100%;
         text-align: center;

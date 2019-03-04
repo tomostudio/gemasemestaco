@@ -18,6 +18,7 @@
     "gatsby-plugin-layout": "^1.0.12",
     "gatsby-plugin-manifest": "^2.0.13",
     "gatsby-plugin-netlify": "^2.0.6",
+    "gatsby-plugin-netlify-cache": "^1.1.0",
     "gatsby-plugin-netlify-cms": "^3.0.9",
     "gatsby-plugin-netlify-cms-paths": "^1.1.0",
     "gatsby-plugin-offline": "^2.0.20",
