@@ -41,6 +41,6 @@ collections:
             fields:
             - { label: 'Work Link', name: 'link', widget: 'string', required: true }
             - { label: 'Show File', name: 'toggle', widget: 'boolean',  default: false, required: true }
-            - { label: 'Work File', name: 'file', widget: 'file', required: false, allow_multiple: false}
+            - { label: 'Work File', name: 'file', widget: 'file', default: '', required: false, allow_multiple: false}
           - { label: 'Email Address', name: 'email', widget: 'string', required: true, }
           - { label: 'About', name: 'body', widget: 'markdown' }

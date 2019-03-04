@@ -12,6 +12,7 @@ bg_img:
 work:
   toggle: false
   link: 'https://instagram.com/gemasemesta.co'
+  file: ''
 email: hello@gemasemesta.co
 ---
 **About** Text

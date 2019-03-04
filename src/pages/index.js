@@ -10,7 +10,7 @@ export default class Index extends React.Component {
 		Home.exit();
 	}
 	render() {
-		const setting = this.props.data.setting;
+		const setting = this.props.data.setting.frontmatter;
 		return (
 			<Layout className="main">
 				<div className="content">
@@ -20,10 +20,10 @@ export default class Index extends React.Component {
 					</div>
 					<div>
 						<Link to="/about">About</Link>
-						<a href="https://instagram.com/gemasemesta.co" target="_blank" rel="noopener noreferrer">
+						<a href={setting.work.toggle ? `file` : `${setting.work.link}`} target="_blank" rel="noopener noreferrer">
 							Works
 						</a>
-						<a href="mailto:hello@gemasemesta.co" target="_blank" rel="noopener noreferrer ">
+						<a href={`mailto:hello@gemasemesta.co`} target="_blank" rel="noopener noreferrer ">
 							Email
 						</a>
 					</div>
@@ -43,6 +43,10 @@ export const query = graphql`
 		setting: markdownRemark(frontmatter: { issetting: { eq: true }, contenttype: { eq: "general_setting" } }) {
 			frontmatter {
 				title
+				work{
+					toggle
+					link
+				}
 			}
 		}
 	}
