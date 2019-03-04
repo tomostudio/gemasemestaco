@@ -66,32 +66,18 @@ exports.createPages = ({
 			graphql(`
       {
 			slug_setting: markdownRemark(frontmatter: {issetting: {eq: true}, contenttype: {eq: "slug_setting"}}) {
-					frontmatter {
-						title
-						issetting
-						redirect {
-							from
-							to
-							status
-						}
+				frontmatter {
+					title
+					issetting
+					redirect {
+						from
+						to
+						status
 					}
+				}
 			}
       }
     `).then((result) => {
-				// const results = result.data.all.edges;
-				// results.forEach(({
-				// 	node
-				// }, index) => {
-				// 	if (node.frontmatter.contenttype == 'blog') {
-				// 		createPage({
-				// 			path: node.fields.slug,
-				// 			component: path.resolve(`./src/templates/blog-temp.js`),
-				// 			context: {
-				// 				slug: node.fields.slug,
-				// 			}
-				// 		});
-				// 	}
-				// })
 
 				if (result.data.slug_setting) {
 					redirectObject = result.data.slug_setting.frontmatter;
