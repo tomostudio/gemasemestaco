@@ -17,6 +17,8 @@ bg_img:
     title: Gema Semesta 5
   - img: /assets/gema-semesta_coming-soon-16.jpg
     title: Gema Semesta 6
+  - img: /assets/gema-semesta_coming-soon-12he.jpg
+    title: Gema Semesta 4
 work:
   file: /assets/placeholder.pdf
   link: 'https://instagram.com/gemasemesta.co'
