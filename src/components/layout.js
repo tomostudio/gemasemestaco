@@ -104,7 +104,6 @@ const CommonLayout = {
 		CommonLayout.initTimeout = null;
 		CommonLayout.resizeRemove();
 	},
-
 	resize: () => {
 		const resizeFunction = () => {
 			if (typeof document !== `undefined`) {
