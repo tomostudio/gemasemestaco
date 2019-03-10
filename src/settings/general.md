@@ -4,7 +4,7 @@ contenttype: general_setting
 title: Gema Semesta Work In Progress...
 seo:
   seo_image: /assets/gema-semesta_coming-soon-1.jpg
-  seo_keywords: 'Gema Semesta, Design'
+  seo_keywords: 'Gema Semesta, Graphic Design, Illustration, Art, Design'
   seo_shortdesc: Portfolio Website of Gema Semesta that is still a Work in Progress...
 bg_img:
   - img: /assets/gema-semesta_coming-soon-1.jpg
@@ -13,6 +13,8 @@ bg_img:
     title: Gema Semesta 2
   - img: /assets/gema-semesta_coming-soon-13.jpg
     title: Gema Semesta 3
+  - img: /assets/gema-semesta_coming-soon-12he.jpg
+    title: Gema Semesta 4
   - img: /assets/gema-semesta_coming-soon-15.jpg
     title: Gema Semesta 5
   - img: /assets/gema-semesta_coming-soon-16.jpg
