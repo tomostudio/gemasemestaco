@@ -15,9 +15,13 @@ div#Layout {
 
     &.main {
         padding: $global-padding;
+        @include padding-safe-area($global-padding);
+        @include padding-safe-bottom($global-padding);
 
         @include respond-to(mobile) {
             padding: $global-padding-m;
+            @include padding-safe-area($global-padding-m);
+            @include padding-safe-bottom($global-padding-m);
         }
 
         & .content {
@@ -132,9 +136,13 @@ div#Layout {
 
         &>a {
             padding: $global-padding;
+            @include padding-safe-area($global-padding);
+            @include padding-safe-bottom($global-padding);
 
             @include respond-to(mobile) {
                 padding: $global-padding-m;
+                @include padding-safe-area($global-padding-m);
+                @include padding-safe-bottom($global-padding-m);
             }
 
             cursor: w-resize;
@@ -174,11 +182,15 @@ div#Layout {
         }
         & > a:first-child{
             padding: $global-padding;
+            @include padding-safe-area($global-padding);
+            @include padding-safe-bottom($global-padding);
             height: 100%;
             width: 100%;
 
             @include respond-to(mobile) {
                 padding: $global-padding-m;
+                @include padding-safe-area($global-padding-m);
+                @include padding-safe-bottom($global-padding-m);
             }
             @include setflex(column, nowrap, space-between, flex-start, flex-start);
             color: black;
