@@ -28,11 +28,3 @@ email: mail@gemasemesta.co
 **Gema Semesta** is a graphic designer and illustrator.
 
 He distinguishes his approach to art and design. When he draws, he realizes that art is a form of creative expression that doesn't need to be perfect. And when he designs, he takes a step back and creates something that is carefully considered out of simplicity and humility.
-
-
-
-
-
-
-
-We are accepting applications for graphic designer position: both full time and intern. Write to us at mail@gemasemesta.co
