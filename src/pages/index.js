@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import Layout from 'components/layout';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export default class Index extends React.Component {
 	componentDidMount() {
@@ -13,7 +13,7 @@ export default class Index extends React.Component {
 	render() {
 		const setting = this.props.data.setting.frontmatter;
 		return (
-			<Layout className="main">
+            <Layout className="main">
 				<div className="content">
 					<div>
 						<div onClick={Home.backgroundInit}>Gema Semesta</div>
@@ -36,44 +36,45 @@ export default class Index extends React.Component {
 					</div>
 				</div>
 				<div id="HomeBg" className="background">
-					{setting.bg_img.map((each, id) => (
+					{setting.bg_img.map((each, id) => { 
+						const image = getImage(each.img)
+						return(
 						<div key={id}>
-							<Img fluid={each.img.childImageSharp.fluid} alt={each.title} />
+							<GatsbyImage image={image} alt={each.title} />
 						</div>
-					))}
+					)})}
 				</div>
 				<footer>&copy; 2019. Gema Semesta</footer>
 			</Layout>
-		);
+        );
 	}
 }
 
-export const query = graphql`
-	query {
-		setting: markdownRemark(frontmatter: { issetting: { eq: true }, contenttype: { eq: "general_setting" } }) {
-			frontmatter {
-				title
-				work {
-					toggle
-					link
-					file {
-						publicURL
-					}
-				}
-				email
-				bg_img {
-					img {
-						childImageSharp {
-							fluid(maxWidth: 1920) {
-								...GatsbyImageSharpFluid_noBase64
-							}
-						}
-					}
-					title
-				}
-			}
-		}
-	}
+export const query = graphql`{
+  setting: markdownRemark(
+    frontmatter: {issetting: {eq: true}, contenttype: {eq: "general_setting"}}
+  ) {
+    frontmatter {
+      title
+      work {
+        toggle
+        link
+        file {
+          publicURL
+        }
+      }
+      email
+      bg_img {
+        img {
+          childImageSharp {
+            gatsbyImageData(placeholder: DOMINANT_COLOR, layout: FULL_WIDTH)
+          }
+        }
+        title
+      }
+    }
+  }
+}
 `;
 
 const Home = {

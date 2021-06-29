@@ -1,12 +1,10 @@
-const {
-	fmImagesToRelative
-} = require('gatsby-remark-relative-images');
 const path = require(`path`);
 const {
 	createFilePath
 } = require(`gatsby-source-filesystem`);
 let checkstatus = false;
 let redirectObject;
+
 exports.onCreateNode = ({
 	graphql,
 	node,
@@ -30,8 +28,6 @@ exports.onCreateNode = ({
 		});
 	}
 
-	fmImagesToRelative(node);
-
 	const {
 		createNodeField
 	} = actions;
@@ -42,13 +38,6 @@ exports.onCreateNode = ({
 			basePath: `src`
 		});
 		let slug = node.frontmatter.slug;
-
-		if (filepath.includes('pages/blog/')) slug = 'blog/' + node.frontmatter.slug;
-		createNodeField({
-			node,
-			name: `slug`,
-			value: slug
-		});
 	}
 
 

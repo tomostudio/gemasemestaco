@@ -28,20 +28,13 @@ module.exports = {
                 path: `${__dirname}/src/`,
             },
         },
-        `gatsby-plugin-offline`,
         // `gatsby-plugin-remove-serviceworker`,
-        'gatsby-plugin-netlify-cache',
         `gatsby-plugin-react-helmet`,
         `gatsby-remark-copy-linked-files`,
         `gatsby-plugin-sass`,
-        {
-            resolve: `gatsby-plugin-netlify-cms`,
-            options: {
-                htmlTitle: `Content Manager | Gema Semesta`,
-            },
-        },
-        `gatsby-transformer-sharp`,
+        `gatsby-plugin-image`,
         `gatsby-plugin-sharp`,
+        `gatsby-transformer-sharp`,
         `gatsby-plugin-layout`,
         `gatsby-plugin-sitemap`,
         {
@@ -54,9 +47,9 @@ module.exports = {
             resolve: `gatsby-transformer-remark`,
             options: {
                 plugins: [
-                    `gatsby-remark-static-images`,
-                    `gatsby-remark-unwrap-images`,
                     `gatsby-remark-relative-images`,
+                    // `gatsby-remark-static-images`,
+                    // `gatsby-remark-unwrap-images`,
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
@@ -65,6 +58,12 @@ module.exports = {
                         },
                     },
                 ],
+            },
+        },
+        {
+            resolve: `gatsby-plugin-netlify-cms`,
+            options: {
+                htmlTitle: `Content Manager | Gema Semesta`,
             },
         },
         {

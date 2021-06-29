@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from 'components/layout';
 import { Link } from 'gatsby';
 
-export default () => (
+const Error404 = () => (
 	<Layout className="error">
 		<Link to="/">
 			<div>
@@ -12,3 +12,5 @@ export default () => (
 		</Link>
 	</Layout>
 );
+
+export default Error404;

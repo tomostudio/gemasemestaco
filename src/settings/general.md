@@ -8,9 +8,7 @@ seo:
   seo_shortdesc: Portfolio Website of Gema Semesta that is still a Work in Progress...
 bg_img:
   - img: /assets/gema-semesta_coming-soon-1.jpg
-    title: 'Gema Semesta '
-  - img: /assets/gema-semesta_coming-soon-12.jpg
-    title: Gema Semesta 2
+    title: 'Gema Semesta'
   - img: /assets/gema-semesta_coming-soon-13.jpg
     title: Gema Semesta 3
   - img: /assets/gema-semesta_coming-soon-12he.jpg
