@@ -29,9 +29,6 @@ package = "netlify-plugin-gatsby-cache"
 package = "netlify-plugin-image-optim"
 
 [[plugins]]
-package = "netlify-plugin-is-website-vulnerable"
-
-[[plugins]]
 
 package = "@netlify/plugin-gatsby"
 [[plugins]]
